@@ -1,0 +1,22 @@
+{
+  "name": "minesweeper-solver-core",
+  "version": "1.0.0",
+  "description": "minimal minesweeper solver as a core engine",
+  "main": "solver.ts",
+  "scripts": {
+    "test": "tsc *ts && node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuanyuwang/minesweeper-solver-core.git"
+  },
+  "keywords": [
+    "minesweeper"
+  ],
+  "author": "wang x.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xuanyuwang/minesweeper-solver-core/issues"
+  },
+  "homepage": "https://github.com/xuanyuwang/minesweeper-solver-core#readme"
+}
