@@ -22,11 +22,11 @@ class Cell{
 	constructor(symbol: string){
 		this.symbol = symbol;
 		this.guessed = false;
+		this.neighbors = [];
 	}
 
 	public addNeighbor(neighbor: Cell): void{
 		this.neighbors.push(neighbor);
-		neighbor.addNeighbor(this);
 	}
 
 	public getNeighbors(): Array<Cell>{
@@ -109,6 +109,7 @@ class Solver{
 					const coord_col = coord[1];
 					if(this.cells[coord_row] && this.cells[coord_row][coord_col]){
 						this.cells[coord_row][coord_col].addNeighbor(cell);
+						cell.addNeighbor(this.cells[coord_row][coord_col]);
 					}
 				});
 			}

@@ -7,13 +7,18 @@ function specTemp33(_00, _01, _02, _10, _11, _12, _20, _21, _22) {
         `${_20}${_21}${_22}`;
 }
 
-function test_parse_spec(): void {
+function assertEqual(expected: any, actual: any, message: string){
+    if(expected === actual){
+        console.log('Pass');
+    }else{
+        console.log('Fail', message);
+    }
+}
+function test_parse_initial_spec(): void {
     const solver = new Solver();
     const intialBoard = specTemp33(CS.Untouch, CS.Untouch, CS.Untouch,
         CS.Untouch, CS.Untouch, CS.Untouch,
         CS.Untouch, CS.Untouch, CS.Untouch);
     solver.parseBoardSpec(intialBoard);
-    console.log(solver.currentBoardSpec());
+    assertEqual(solver.currentBoardSpec(), 'uuu\nuuu\nuuu', 'parse inital spec');
 }
-
-test_parse_spec();
