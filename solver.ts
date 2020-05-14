@@ -46,7 +46,7 @@ class Cell{
 		const flagged: Array<Cell> = [];
 		const untouched: Array<Cell> = [];
 		this.neighbors.forEach((neighbor) => {
-			const cellValue = neighbor.isGuessed ? neighbor.getGuess() : this.getSymbol();
+			const cellValue = neighbor.isGuessed() ? neighbor.getGuess() : neighbor.getSymbol();
 			if(cellValue === CellSymbols.Untouch){
 				untouched.push(neighbor);
 			} else if(cellValue === CellSymbols.Flag){
@@ -101,8 +101,12 @@ class Solver{
 				const possibleNeighbors = [
 					[rowIndex - 1, colIndex - 1],
 					[rowIndex - 1, colIndex],
+					[rowIndex - 1, colIndex + 1],
 					[rowIndex, colIndex + 1],
-					[rowIndex, colIndex - 1]
+					[rowIndex, colIndex - 1],
+					[rowIndex + 1, colIndex - 1],
+					[rowIndex + 1, colIndex],
+					[rowIndex + 1, colIndex + 1]
 				];
 				possibleNeighbors.forEach((coord) => {
 					const coord_row = coord[0];
