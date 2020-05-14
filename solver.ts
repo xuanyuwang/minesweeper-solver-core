@@ -126,14 +126,15 @@ class Solver{
 	}
 
 	public currentBoardSpec(): string{
-		let spec = '';
+		let rows: Array<string> = [];
 		this.cells.forEach((row) => {
+			let cells = '';
 			row.forEach((cell) => {
-				spec += cell.isGuessed() ? cell.getGuess() : cell.getSymbol();
+				cells += cell.isGuessed() ? cell.getGuess() : cell.getSymbol();
 			});
-			spec += '\n';
+			rows.push(cells);
 		});
-		return spec;
+		return rows.join('\n');
 	}
 }
 
