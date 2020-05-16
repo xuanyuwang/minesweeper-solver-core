@@ -5,8 +5,8 @@
   "main": "solver.ts",
   "scripts": {
     "test": "tsc ./tsconfig.json && node tests.js",
-    "build-dev": "tsc ./tsconfig.json",
-    "build-prod": "tsc ./tsconfig.prod.json"
+    "build-dev": "tsc -p ./tsconfig.json",
+    "build-prod": "tsc -p ./tsconfig.prod.json"
   },
   "repository": {
     "type": "git",
