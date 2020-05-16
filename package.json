@@ -4,7 +4,9 @@
   "description": "minimal minesweeper solver as a core engine",
   "main": "solver.ts",
   "scripts": {
-    "test": "tsc *ts && node tests.js"
+    "test": "tsc ./tsconfig.json && node tests.js",
+    "build-dev": "tsc ./tsconfig.json",
+    "build-prod": "tsc ./tsconfig.prod.json"
   },
   "repository": {
     "type": "git",
