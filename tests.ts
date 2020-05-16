@@ -39,6 +39,37 @@ function test_deduct_1(): void {
     const parsedBoard = solver.currentBoardSpec()
     assertEqual(parsedBoard, '000\n010\n00f', 'test the solver for number 1', parsedBoard);
 }
-
+function test_deduct_8(): void {
+    /**
+     * u u u
+     * u 2 u
+     * u u u
+     */
+    const solver = new Solver();
+    const intialBoard = specTemp33(CS.Untouch, CS.Untouch, CS.Untouch,
+        CS.Untouch, CS.Eight, CS.Untouch,
+        CS.Untouch, CS.Untouch, CS.Untouch);
+    solver.parseBoardSpec(intialBoard);
+    solver.deduct();
+    const parsedBoard = solver.currentBoardSpec()
+    assertEqual(parsedBoard, 'fff\nf8f\nfff', 'test the solver for number 8', parsedBoard);
+}
+function test_deduct_unable(): void {
+    /**
+     * 0 0 0
+     * 0 3 u
+     * u u u
+     */
+    const solver = new Solver();
+    const intialBoard = specTemp33(CS.Zero, CS.Zero, CS.Zero,
+        CS.Zero, CS.Three, CS.Untouch,
+        CS.Untouch, CS.Untouch, CS.Untouch);
+    solver.parseBoardSpec(intialBoard);
+    solver.deduct();
+    const parsedBoard = solver.currentBoardSpec()
+    assertEqual(parsedBoard, '000\n03u\nuuu', 'solver is unable to deduct', parsedBoard);
+}
 test_parse_initial_spec();
 test_deduct_1();
+test_deduct_8();
+test_deduct_unable();

@@ -93,6 +93,7 @@ class Solver{
 
 		rows.forEach((row, rowIndex) => {
 			const rowOfCells = [];
+			this.cells.push(rowOfCells);
 			for(let colIndex = 0; colIndex < this.colLength; colIndex++){
 				const symbol = row.charAt(colIndex);
 				const cell = new Cell(symbol);
@@ -102,11 +103,7 @@ class Solver{
 					[rowIndex - 1, colIndex - 1],
 					[rowIndex - 1, colIndex],
 					[rowIndex - 1, colIndex + 1],
-					[rowIndex, colIndex + 1],
-					[rowIndex, colIndex - 1],
-					[rowIndex + 1, colIndex - 1],
-					[rowIndex + 1, colIndex],
-					[rowIndex + 1, colIndex + 1]
+					[rowIndex, colIndex - 1]
 				];
 				possibleNeighbors.forEach((coord) => {
 					const coord_row = coord[0];
@@ -117,7 +114,6 @@ class Solver{
 					}
 				});
 			}
-			this.cells.push(rowOfCells);
 		})
 	}
 
