@@ -1,5 +1,5 @@
-import Solver from './solver';
-import { CellSymbols as CS } from './solver';
+import Solver from '../src/solver';
+import { CellSymbols as CS } from '../src/solver';
 
 function specTemp33(_00, _01, _02, _10, _11, _12, _20, _21, _22) {
     return `${_00}${_01}${_02}\n` +
