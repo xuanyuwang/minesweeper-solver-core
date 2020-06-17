@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/xuanyuwang/minesweeper-solver-core#readme",
   "devDependencies": {
+    "electron": "^9.0.4",
     "intern": "^4.8.7",
     "typescript": "^3.9.5"
   }
