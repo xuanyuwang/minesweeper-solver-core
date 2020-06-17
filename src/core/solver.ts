@@ -83,8 +83,15 @@ class Solver{
 	private cells: Array<Array<Cell>>;
 	private rowLength: number;
 	private colLength: number;
+	private options: object;
 
-	public parseBoardSpec(boardSpec: string): void{
+	/**
+	 * This API will convert a string board spec into an internal data structure 
+	 * @param boardSpec consists of CellSymbols and new line characters ("\n")
+	 * @param options 
+	 */
+	public parseBoardSpec(boardSpec: string, options?: string): void{
+		this.options = Boolean(options) ? JSON.parse(options) : {};
 		this.boardSpec = boardSpec;
 		const rows: Array<string> = this.boardSpec.split('\n');
 		this.rowLength = rows.length;
