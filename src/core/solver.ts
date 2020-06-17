@@ -87,7 +87,8 @@ class Solver{
 
 	/**
 	 * This API will convert a string board spec into an internal data structure 
-	 * @param boardSpec consists of CellSymbols and new line characters ("\n")
+	 * @param boardSpec consists of CellSymbols and new line characters ("\n"). 
+	 * The last line should not have trailing new line characters.
 	 * @param options 
 	 */
 	public parseBoardSpec(boardSpec: string, options?: string): void{
