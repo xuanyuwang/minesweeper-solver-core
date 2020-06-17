@@ -53,6 +53,46 @@ registerSuite('Cell Tests', () => {
             solver.parseBoardSpec(spec, options);
             solver.deduct();
             expect(solver.currentBoardSpec(), 'find bomb for 3').to.equal('ff0\n030\n00f');
+        },
+
+        'deduct: 4 bomb around'(){
+            const spec = 'uuu\n040\n00u';
+            const options = undefined;
+            solver.parseBoardSpec(spec, options);
+            solver.deduct();
+            expect(solver.currentBoardSpec(), 'find bomb for 4').to.equal('fff\n040\n00f');
+        },
+
+        'deduct: 5 bomb around'(){
+            const spec = 'uuu\nu50\n00u';
+            const options = undefined;
+            solver.parseBoardSpec(spec, options);
+            solver.deduct();
+            expect(solver.currentBoardSpec(), 'find bomb for 5').to.equal('fff\nf50\n00f');
+        },
+
+        'deduct: 6 bomb around'(){
+            const spec = 'uuu\nu6u\n00u';
+            const options = undefined;
+            solver.parseBoardSpec(spec, options);
+            solver.deduct();
+            expect(solver.currentBoardSpec(), 'find bomb for 6').to.equal('fff\nf6f\n00f');
+        },
+
+        'deduct: 7 bomb around'(){
+            const spec = 'uuu\nu7u\nu0u';
+            const options = undefined;
+            solver.parseBoardSpec(spec, options);
+            solver.deduct();
+            expect(solver.currentBoardSpec(), 'find bomb for 7').to.equal('fff\nf7f\nf0f');
+        },
+
+        'deduct: 8 bomb around'(){
+            const spec = 'uuu\nu8u\nuuu';
+            const options = undefined;
+            solver.parseBoardSpec(spec, options);
+            solver.deduct();
+            expect(solver.currentBoardSpec(), 'find bomb for 8').to.equal('fff\nf8f\nfff');
         }
     }
 })
