@@ -1,7 +1,13 @@
 {
     "compilerOptions": {
+        "sourceMap": true,
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "outDir": "dist",
+        "types":["intern"]
     },
-    "files": [
-        "./src/**/*.ts"
+    "include": [
+        "src/**/*.ts",
+        "test/**/*.ts"
     ]
 }

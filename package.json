@@ -2,8 +2,8 @@
   "name": "minesweeper-solver-core",
   "version": "1.0.0",
   "description": "minimal minesweeper solver as a core engine",
-  "main": "solver.ts",
   "scripts": {
+    "start": "npm run build-dev && electron dist/src/GUI/main.js",
     "test": "intern",
     "build-dev": "tsc -p ./tsconfig.json",
     "build-prod": "tsc -p ./tsconfig.prod.json"

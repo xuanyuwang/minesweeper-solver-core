@@ -100,7 +100,7 @@ class Solver{
 		this.cells = [];
 
 		rows.forEach((row, rowIndex) => {
-			const rowOfCells = [];
+			const rowOfCells: Array<Cell> = [];
 			this.cells.push(rowOfCells);
 			for(let colIndex = 0; colIndex < this.colLength; colIndex++){
 				const symbol = row.charAt(colIndex);
