@@ -29,6 +29,30 @@ registerSuite('Cell Tests', () => {
             const options = undefined;
             solver.parseBoardSpec(spec_3x4, options);
             expect(solver.currentBoardSpec(), 'handle 3x4 wrongly').to.equal(spec_3x4);
+        },
+
+        'deduct: 1 bomb around'(){
+            const spec = 'u00\n010\n000';
+            const options = undefined;
+            solver.parseBoardSpec(spec, options);
+            solver.deduct();
+            expect(solver.currentBoardSpec(), 'find bomb for 1').to.equal('f00\n010\n000');
+        },
+
+        'deduct: 2 bomb around'(){
+            const spec = 'u00\n020\n00u';
+            const options = undefined;
+            solver.parseBoardSpec(spec, options);
+            solver.deduct();
+            expect(solver.currentBoardSpec(), 'find bomb for 2').to.equal('f00\n020\n00f');
+        },
+
+        'deduct: 3 bomb around'(){
+            const spec = 'uu0\n030\n00u';
+            const options = undefined;
+            solver.parseBoardSpec(spec, options);
+            solver.deduct();
+            expect(solver.currentBoardSpec(), 'find bomb for 3').to.equal('ff0\n030\n00f');
         }
     }
 })
