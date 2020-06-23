@@ -1,3 +1,4 @@
-*.js
-*.js.map
+./**/*.js
+.tscache
+dist
 node_modules
