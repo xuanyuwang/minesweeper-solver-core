@@ -1,12 +1,9 @@
 import { app, BrowserWindow } from "electron";
-import * as path from "path";
+import ScreenParser from './ScreenParser';
 
 function createWindow() {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
-    height: 600,
-    width: 800,
-  });
+  const mainWindow = new BrowserWindow();
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html');
@@ -36,6 +33,3 @@ app.on("window-all-closed", () => {
     app.quit();
   }
 });
-
-// In this file you can include the rest of your app"s specific main process
-// code. You can also put them in separate files and require them here.
