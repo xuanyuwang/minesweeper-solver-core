@@ -5,8 +5,6 @@
   "scripts": {
     "start": "grunt && electron dist/src/GUI/main.js",
     "test": "intern",
-    "build-dev": "tsc -p ./tsconfig.json",
-    "build-prod": "tsc -p ./tsconfig.prod.json",
     "clean": "rm -rf dist"
   },
   "repository": {
@@ -25,9 +23,6 @@
   "devDependencies": {
     "electron": "^9.0.4",
     "grunt": "^1.1.0",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-ts": "^6.0.0-beta.22",
-    "intern": "^4.8.7",
-    "typescript": "^3.9.5"
+    "grunt-contrib-copy": "^1.0.0"
   }
 }

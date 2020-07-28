@@ -2,7 +2,7 @@ import { desktopCapturer } from  'electron';
 
 class ScreenParser {
 
-    public async CaptureScreen(): Promise<any> {
+    async CaptureScreen() {
         return await desktopCapturer.getSources(
             {
                 types: ['window', 'screen']
@@ -23,7 +23,7 @@ class ScreenParser {
         })
     }
 
-    handleCaptureStream(stream: MediaStream): void {
+    handleCaptureStream(stream) {
         const videoEl = document.querySelector('video');
         videoEl.srcObject = stream;
         videoEl.onloadedmetadata = () => videoEl.play();

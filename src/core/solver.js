@@ -1,4 +1,4 @@
-enum CellSymbols {
+const CellSymbols = {
 	One = '1',
 	Two = '2',
 	Three = '3',
@@ -14,37 +14,32 @@ enum CellSymbols {
 }
 
 class Cell{
-	private symbol: string;
-	private neighbors: Array<Cell>;
-	private guess: string;
-	private guessed: boolean;
-
-	constructor(symbol: string){
+	constructor(symbol){
 		this.symbol = symbol;
 		this.guessed = false;
 		this.neighbors = [];
 	}
 
-	public addNeighbor(neighbor: Cell): void{
+	addNeighbor(neighbor){
 		this.neighbors.push(neighbor);
 	}
 
-	public getNeighbors(): Array<Cell>{
+	getNeighbors(){
 		return this.neighbors;
 	}
 
-	public getSymbol(): string{
+	getSymbol(){
 		return this.symbol;
 	}
 
-	public deduct(): void{
+	deduct(){
 		if(!this.isNumber()){
 			return;
 		}
 
-		const mine: number = parseInt(this.symbol);
-		const flagged: Array<Cell> = [];
-		const untouched: Array<Cell> = [];
+		const mine = parseInt(this.symbol);
+		const flagged = [];
+		const untouched = [];
 		this.neighbors.forEach((neighbor) => {
 			const cellValue = neighbor.isGuessed() ? neighbor.getGuess() : neighbor.getSymbol();
 			if(cellValue === CellSymbols.Untouch){
@@ -60,47 +55,41 @@ class Cell{
 		}
 	}
 
-	public setGuess(guess: string){
+	setGuess(guess){
 		this.guess = guess;
 		this.guessed = true;
 	}
 
-	public getGuess(): string{
+	getGuess(){
 		return this.guess;
 	}
 
-	public isGuessed(): boolean{
+	isGuessed(){
 		return this.guessed;
 	}
 
-	private isNumber(): boolean{
+	isNumber(){
 		return !(this.symbol === CellSymbols.Untouch ||
 				this.symbol === CellSymbols.Flag);
 	}
 }
 class Solver{
-	private boardSpec: string;
-	private cells: Array<Array<Cell>>;
-	private rowLength: number;
-	private colLength: number;
-	private options: object;
-
 	/**
 	 * This API will convert a string board spec into an internal data structure 
 	 * @param boardSpec consists of CellSymbols and new line characters ("\n"). 
 	 * The last line should not have trailing new line characters.
 	 * @param options 
 	 */
-	public parseBoardSpec(boardSpec: string, options?: string): void{
+	parseBoardSpec(boardSpec, options){
 		this.options = Boolean(options) ? JSON.parse(options) : {};
 		this.boardSpec = boardSpec;
-		const rows: Array<string> = this.boardSpec.split('\n');
+		const rows = this.boardSpec.split('\n');
 		this.rowLength = rows.length;
 		this.colLength = rows[0].length;
 		this.cells = [];
 
 		rows.forEach((row, rowIndex) => {
-			const rowOfCells: Array<Cell> = [];
+			const rowOfCells = [];
 			this.cells.push(rowOfCells);
 			for(let colIndex = 0; colIndex < this.colLength; colIndex++){
 				const symbol = row.charAt(colIndex);
@@ -125,7 +114,7 @@ class Solver{
 		})
 	}
 
-	public deduct(): void{
+	deduct(){
 		this.cells.forEach((row) => {
 			row.forEach((cell) => {
 				cell.deduct();
@@ -133,8 +122,8 @@ class Solver{
 		});
 	}
 
-	public currentBoardSpec(): string{
-		let rows: Array<string> = [];
+	currentBoardSpec(){
+		let rows = [];
 		this.cells.forEach((row) => {
 			let cells = '';
 			row.forEach((cell) => {

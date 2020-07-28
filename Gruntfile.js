@@ -1,25 +1,31 @@
 module.exports = function(grunt){
     'use strict';
     grunt.initConfig({
-        ts: {
-            default: {
-                tsconfig: './tsconfig.json'
-            }
-        },
         copy: {
-            html: {
-                expand: true,
-                cwd: '.',
-                src: './src/**/*.html',
-                dest: 'dist'
+            js: {
+                files: [
+                    {
+                        expand: true,
+                        src: 'src/**/*.js',
+                        dest: 'dist/'
+                    },
+                    {
+                        expand: true,
+                        src: 'src/**/*.html',
+                        dest: 'dist/'
+                    },
+                    {
+                        expand: true,
+                        src: 'test/**',
+                        dest: 'dist/'
+                    }
+                ]
             }
         }
     });
 
-    grunt.loadNpmTasks('grunt-ts');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.registerTask('default', [
-        'ts',
         'copy'
     ]);
 }
