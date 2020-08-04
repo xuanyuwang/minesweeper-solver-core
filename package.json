@@ -4,7 +4,6 @@
   "description": "minimal minesweeper solver as a core engine",
   "scripts": {
     "start": "grunt && electron dist/src/GUI/main.js",
-    "test": "intern",
     "clean": "rm -rf dist"
   },
   "repository": {

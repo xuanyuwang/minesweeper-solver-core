@@ -1,3 +1,0 @@
-{
-    "suites": "dist/test/**/*.test.js"
-}
