@@ -135,5 +135,5 @@ class Solver{
 	}
 }
 
-export { CellSymbols };
-export default Solver;
+module.exports.CellSymbols = CellSymbols;
+module.exports.Solver = Solver;
