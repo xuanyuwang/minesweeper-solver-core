@@ -1,5 +1,5 @@
-module.exports = function(grunt){
-    'use strict';
+'use strict';
+module.exports = function (grunt) {
     grunt.initConfig({
         copy: {
             js: {
@@ -8,16 +8,33 @@ module.exports = function(grunt){
                         expand: true,
                         src: 'src/**/*.js',
                         dest: 'dist/'
-                    },
+                    }
+                ]
+            },
+            html: {
+                files: [
                     {
                         expand: true,
                         src: 'src/**/*.html',
                         dest: 'dist/'
-                    },
+                    }
+                ]
+            }
+        },
+        clean: {
+            js: {
+                files: [
                     {
                         expand: true,
-                        src: 'test/**',
-                        dest: 'dist/'
+                        src: 'dist/**/*.js'
+                    }
+                ]
+            },
+            html: {
+                files: [
+                    {
+                        expand: true,
+                        src: 'dist/**/*.html'
                     }
                 ]
             }
@@ -25,7 +42,9 @@ module.exports = function(grunt){
     });
 
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.registerTask('default', [
+        'clean',
         'copy'
     ]);
 }

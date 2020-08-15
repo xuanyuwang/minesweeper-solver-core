@@ -1,5 +1,6 @@
-import { app, BrowserWindow } from "electron";
-import ScreenParser from './ScreenParser';
+const electron = require('electron');
+const app = electron.app;
+const BrowserWindow = electron.BrowserWindow;
 
 function createWindow() {
   // Create the browser window.
